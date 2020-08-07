@@ -6,7 +6,7 @@ url:                 https://victor-qin.github.io
 baseurl:             ''
 paginate:            5
 permalink:           pretty
-remote_theme:        poole/lanyon
+
 
 
 # About/contact
