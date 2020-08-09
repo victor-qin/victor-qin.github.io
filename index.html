@@ -1,37 +1,24 @@
 ---
-layout: default
-title: Home
+layout: page
+title: Victor Qin
 ---
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<div class="row">
+    <div class="col-md-8">
+        <!-- <h1 class="post-title">Victor Qin</h1> -->
+        <p class="post-date">Electrical Engineering SB, Government secondary, Harvard '21</p>
+        
+        <p>I do things with multi-agent robotics and controls! I'm fascinated by space, and looking to explore GNC and avionics applications in aerospace.</p>
+     
+        <p>Outside of engineering I play Ultimate Frisbee and read too much science fiction.</p>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <img src="public/profile_photo.jpg" class="img-fluid">
+        <span style="float:right">
+            <a href="mailto:victor_l_qin@college.harvard.edu" target='_blank' alt='Email'><i class='far fa-envelope' style='font-size:24px'></i></a>
+            <a href="https://www.linkedin.com/in/victor-qin-14754286/" target='_blank' alt='LinkedIn'><i class='fab fa-linkedin' style='font-size:24px'></i></a>
+        </span>
+    </div>  
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>

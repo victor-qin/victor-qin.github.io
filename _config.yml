@@ -1,19 +1,17 @@
 # Setup
 title:               Victor Qin
-tagline:             'A pretty cool guy'
-description:         'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+description:         'Built with Jekyll theme <a href="https://lanyon.getpoole.com/" target="_blank">Lanyon</a> and <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>.'
 url:                 https://victor-qin.github.io
 baseurl:             ''
-paginate:            5
+paginate:            20
 permalink:           pretty
-
 
 
 # About/contact
 author:
   name:              Victor Qin
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  url:               https://victor-qin.github.io
+  email:             lingheng.qin@gmail.com
 
 # Gems
 plugins:

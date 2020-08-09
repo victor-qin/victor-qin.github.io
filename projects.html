@@ -1,0 +1,28 @@
+---
+layout: page
+title: Projects
+---
+
+<div class="posts">
+  <div class="row">
+    {% assign filename = "../public/img/" %}
+    {% for post in site.posts %}
+    <div class="col-md-6 d-flex justify-content-center" style="">
+
+      <div class="post">
+        <img src="{{ post.image | prepend: filename }}" class="img-fluid mx-auto d-block" style="height: 250px" >
+          <h3 class="post-title">
+            <a href="{{ post.url | absolute_url }}">
+                {{ post.title }}
+            </a>
+          </h3>
+      </div>
+
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+
+
+  
