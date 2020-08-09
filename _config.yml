@@ -1,7 +1,7 @@
 # Setup
 title:               Victor Qin
 description:         'Built with Jekyll theme <a href="https://lanyon.getpoole.com/" target="_blank">Lanyon</a> and <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>.'
-url:                 https://victor-qin.github.io
+url:                 https://victor-qin.com
 baseurl:             ''
 paginate:            20
 permalink:           pretty
@@ -10,7 +10,7 @@ permalink:           pretty
 # About/contact
 author:
   name:              Victor Qin
-  url:               https://victor-qin.github.io
+  url:               https://victor-qin.com
   email:             lingheng.qin@gmail.com
 
 # Gems
