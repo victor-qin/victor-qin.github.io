@@ -7,7 +7,7 @@ title: Cool Work
   
     <div class="row">
     {% assign filename = "/public/img/" %}
-    {% for post in site.work %}
+    {% for post in site.work reversed %}
     <div class="col-6">
       <div class="card">
         <img class="card-img-top thumbnail-img" src="{{ post.image | prepend: filename }}" alt="Card image cap">
