@@ -10,7 +10,7 @@ title: Technical Projects
     {% for post in site.technical reversed %}
     <div class="col-6">
       <div class="card" >
-        <img class="card-img-top thumbnail-img" src="{{ post.image | prepend: filename }}" alt="Card image cap">
+        <img class="card-img-top thumbnail-img" src="{{ post.image | prepend: filename }}" alt="{{ post.description }}">
         <div class="card-body"> 
           <h2 class="card-title">{{post.title}}</h5>
           <p class="card-text">{{post.description}}</p>
