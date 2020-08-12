@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Technical Projects
+title: Cool Work
 ---
-<h5>A collection of technical projects I've worked on in engineering</h5><br>
+<h5>Nontechnical work outside of engineering and research</h5><br>
 <div class="posts">
   
     <div class="row">
     {% assign filename = "/public/img/" %}
-    {% for post in site.technical reversed %}
+    {% for post in site.work reversed%}
     <div class="col-6">
-      <div class="card" >
+      <div class="card">
         <img class="card-img-top thumbnail-img" src="{{ post.image | prepend: filename }}" alt="Card image cap">
         <div class="card-body"> 
           <h2 class="card-title">{{post.title}}</h5>

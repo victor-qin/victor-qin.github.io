@@ -2,6 +2,7 @@
 layout: post
 title: Multi-agent Deployment Problem
 image: Multi-agent-Deployment.png
+description: Non-convex deployment algorithms with decaying awareness functions
 ---
 
 <div class="row">
