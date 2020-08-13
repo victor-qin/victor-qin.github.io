@@ -27,13 +27,11 @@ The Last Question is literally the last question of entropy; Profession lays an 
 
 Strong embodiment of heterotopias - the universe and the characters are both absolutely perfect yet still flawed, but they'll survive, grow and figure it out. If the Expanse is the impulse response, this is the steady state error, or definitely overdamped.
 
-​
 
-**Starship Troopers by Robert Heinlein**
 
-Definitely out of date and many of its central premises are flawed; but there's an argument for what it means to commit to society and to the greater good.
+**The True Story of Merganther's Run by DD Levine**
+Short-story spanning centuries of technology, with an interesting thread of what actually matters in making new things. What is the determination and the motive that makes true innovation​ matter?
 
-​
 
 **The Three-Body Problem, The Wandering Earth, and Mountain by Liu Cixin**
 
