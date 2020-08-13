@@ -13,7 +13,7 @@ Human insights (political and emotional) + realistic physics + unrealistic alien
 
 **The Diamond Age by Neal Stephenson**
 
-The problem is not how you build; it's what you build that counts.
+When you can build anything it's not how you build; it's what you build that counts.
 
 ​
 
@@ -31,6 +31,7 @@ Strong embodiment of heterotopias - the universe and the characters are both abs
 
 **The True Story of Merganther's Run by DD Levine**
 Short-story spanning centuries of technology, with an interesting thread of what actually matters in making new things. What is the determination and the motive that makes true innovation​ matter?
+
 
 
 **The Three-Body Problem, The Wandering Earth, and Mountain by Liu Cixin**
@@ -53,7 +54,7 @@ What do you do with your potential? How do you use it wisely, and understand you
 
 **How to Live Safely in a Science Fictional Universe by Charles Yu**
 
-The scientific explanation of how to tell a story, while trying to figure out Asian-American identity.
+The scientific explanation of how to tell a story, while trying to figure out Asian-American identity. Fantastic blend of self-reflection, self-deprecating humor, and sceince fiction.
 
 ​
 
