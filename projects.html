@@ -1,27 +1,24 @@
 ---
 layout: page
-title: Technical Projects
+title: (non-exhaustive) Technical projects I've worked on.
 ---
-<h5>A collection of technical projects I've worked on in engineering</h5><br>
-<div class="posts">
-  
-    <div class="row">
-    {% assign filename = "/public/img/" %}
-    {% for post in site.technical reversed %}
-    <div class="col-6">
-      <div class="card" >
-        <img class="card-img-top thumbnail-img" src="{{ post.image | prepend: filename }}" alt="{{ post.description }}">
-        <div class="card-body"> 
-          <h2 class="card-title">{{post.title}}</h5>
-          <p class="card-text">{{post.description}}</p>
-          <a href="{{ post.url | absolute_url }}">Read more &raquo;</a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-    </div>
-  
+
+<div>
+  Under construction - check back later!
 </div>
+
+<!-- <div class="list-group">
+  {% for post in site.technical reversed %}
+    <a href="{{ post.url | absolute_url }}" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.title }}</h5>
+      </div>
+      {% if post.description %}
+      <p class="mb-1">{{ post.description }}</p>
+      {% endif %}
+    </a>
+  {% endfor %}
+</div> -->
 
 
 <!-- <div class="row">
@@ -40,5 +37,5 @@ title: Technical Projects
 
   </div>
   {% endfor %}
-  
+
 </div> -->

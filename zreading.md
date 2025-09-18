@@ -16,6 +16,12 @@ Human insights (political and emotional) + realistic physics + unrealistic alien
 When you can build anything it's not how you build; it's what you build that counts.
 
 ​
+**Starship Troopers by Robert A Heinlein**
+
+Not the movie, the book. What's our obligation to society?
+
+"But this universe consists of paired dualities. What is the converse of authority? Mr. Rico." "Responsibility, sir."
+
 
 **The Last Question and Profession by Isaac Asimov**
 

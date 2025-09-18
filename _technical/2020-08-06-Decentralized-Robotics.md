@@ -13,7 +13,7 @@ description: Multi-agent robotic platforms for source-seeking algorithms
   </video>
 </figure>
 
-I am currently helping Prof. Lina Li in building and testing multi-agent algorithms. We are working with Turtlebot3 robots, programmed using ROS to implement and simulate online tracking algorithms. As a part of this project, I learned and presented on SLAM algorithms used on the Turtlebot3 platform.
+I helped Prof. Lina Li in building and testing multi-agent algorithms. We are working with Turtlebot3 robots, programmed using ROS to implement and simulate online tracking algorithms. As a part of this project, I learned and presented on SLAM algorithms used on the Turtlebot3 platform.
 ​
 I also independently worked on a novel multi-robot search algorithm based on zeroth-order gradient descent methods.
 
