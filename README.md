@@ -15,39 +15,43 @@ npm run preview  # serve dist/ locally
 
 ```
 src/
-  content/technical/   Projects       -> /technical/<slug>/, listed at /projects/
-  content/work/        Non-technical  -> /work/<slug>/,      listed at /work/
-  content.config.ts    Frontmatter schemas (validated at build time)
-  assets/img/          Images processed + optimized by Astro
-  data/reading.ts      Reading list entries
-  layouts/             Base (shell) and Post (article)
-  components/          ProjectCard
-  pages/               Routes
-public/                Served verbatim at the site root (PDFs, large media)
+  data/publications.ts   The publication list (single source of truth)
+  data/research.ts       Research directions; ids link to publication topics
+  data/reading.ts        Reading list entries
+  assets/img/            Images processed + optimized by Astro
+  layouts/Base.astro     Page shell, nav, meta
+  components/            PublicationList
+  pages/
+    index.astro          Bio + full publication list
+    research.astro       Research directions, each with its own papers
+    zreading.astro       Reading list
+public/                  Served verbatim at the site root (PDFs, large media)
 ```
 
-## Adding an entry
+## Adding a publication
 
-Drop a Markdown file into `src/content/technical/` or `src/content/work/`:
+Append to `publications` in `src/data/publications.ts`:
 
-```md
----
-title: Thing I Did
-description: One line for the card.
-date: 2026-01-15
-image: ../../assets/img/thing.png   # optional
-skills: [Python, Optimization]      # optional
-role: Project Lead                  # optional, work only
-link: https://example.com           # optional
-linkLabel: Read more                # optional
-draft: false                        # true hides it from the site entirely
----
-
-Body in Markdown. Relative image paths get optimized automatically.
+```ts
+{
+  id: 'qin-venue-2027',
+  title: 'Paper Title',
+  authors: ['V. Qin', 'H. Balakrishnan'],   // 'V. Qin' is bolded automatically
+  venueShort: 'ICRAT 2027',                 // left gutter
+  venue: 'Full venue name, City ST',
+  year: 2027,
+  type: 'conference',                       // or 'journal'
+  coFirst: true,                            // adds the * on your name
+  toAppear: true,                           // optional
+  note: 'Best Paper Award',                 // optional pill
+  url: 'https://doi.org/...',               // optional
+  pdf: '/files/paper.pdf',                  // optional
+  topics: ['market-structures'],            // ids from research.ts
+}
 ```
 
-The schema in `src/content.config.ts` is enforced — a missing `description` or a
-malformed `date` fails the build rather than rendering an empty card.
+`topics` is what makes a paper appear under a research direction — the two files
+stay in sync through those ids, so a paper is never listed in two places by hand.
 
 ## URLs
 

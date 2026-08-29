@@ -1,15 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import PublicationList from '../components/PublicationList.astro';
 import { Image } from 'astro:assets';
 import profilePhoto from '../assets/img/profile_photo.jpg';
+import { publications, byYearDesc } from '../data/publications.ts';
 
-const byDateDesc = (a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf();
-const live = (e: any) => !e.data.draft;
-
-const technical = (await getCollection('technical')).filter(live).sort(byDateDesc);
-const work = (await getCollection('work')).filter(live).sort(byDateDesc);
+const journal = publications.filter((p) => p.type === 'journal').sort(byYearDesc);
+const conference = publications.filter((p) => p.type === 'conference').sort(byYearDesc);
+const anyCoFirst = publications.some((p) => p.coFirst);
 ---
 
 <Base title="Victor Qin">
@@ -23,14 +21,14 @@ const work = (await getCollection('work')).filter(live).sort(byDateDesc);
       </ul>
 
       <p>
-        Hi! I'm currently a PhD Candidate in AeroAstro at MIT, under Prof. Hamsa
-        Balakrishnan, where I study air traffic control methods for future aviation
-        systems. This topic has led me into many different areas, including game
-        theory, optimization, and reinforcement learning.
+        I'm a PhD Candidate in AeroAstro at MIT, advised by Prof. Hamsa
+        Balakrishnan in the DINaMo Lab, where I study air traffic control methods for
+        future aviation systems. That question has pulled me into game theory,
+        optimization, and reinforcement learning.
       </p>
       <p>
-        I'm fortunate to be a NSF Graduate Research Fellow, and previously an NCCR
-        Automation Fellow (at ETH Zurich) and a Mathworks Fellow.
+        I'm an NSF Graduate Research Fellow, and previously an NCCR Automation
+        Fellow at ETH Zurich and a Mathworks Fellow.
       </p>
       <p>Always happy to talk about science fiction, take a trip, and play ultimate Frisbee!</p>
 
@@ -38,7 +36,7 @@ const work = (await getCollection('work')).filter(live).sort(byDateDesc);
         <a href="mailto:victorqi@mit.edu">Email</a>
         <a href="https://www.linkedin.com/in/victor-qin-14754286/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="/files/VictorQin_CV.pdf">CV</a>
-        <a href="/files/VictorQin_resume.pdf">Résumé</a>
+        <a href="/research/">Research</a>
       </div>
     </div>
 
@@ -47,40 +45,18 @@ const work = (await getCollection('work')).filter(live).sort(byDateDesc);
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="publications">
     <div class="section-head">
-      <h2>Projects</h2>
-      <a href="/projects/">All projects →</a>
+      <h2>Publications</h2>
+      <a href="/research/">Research directions →</a>
     </div>
-    <ul class="grid">
-      {technical.map((entry) => (
-        <ProjectCard
-          href={`/technical/${entry.id}/`}
-          title={entry.data.title}
-          description={entry.data.description}
-          image={entry.data.image}
-          date={entry.data.date}
-        />
-      ))}
-    </ul>
-  </section>
 
-  <section class="section">
-    <div class="section-head">
-      <h2>Work</h2>
-      <a href="/work/">All work →</a>
-    </div>
-    <ul class="grid">
-      {work.map((entry) => (
-        <ProjectCard
-          href={`/work/${entry.id}/`}
-          title={entry.data.title}
-          description={entry.data.description}
-          image={entry.data.image}
-          date={entry.data.date}
-          role={entry.data.role}
-        />
-      ))}
-    </ul>
+    <h3 class="pub-group">Journal articles and preprints</h3>
+    <PublicationList items={journal} />
+
+    <h3 class="pub-group">Peer-reviewed conference papers</h3>
+    <PublicationList items={conference} />
+
+    {anyCoFirst && <p class="pub-footnote">* denotes (co-)first author.</p>}
   </section>
 </Base>
