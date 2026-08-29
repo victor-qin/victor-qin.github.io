@@ -1,0 +1,8 @@
+---
+title: Cost-Aware Congestion Management Protocols for Advanced Air Mobility
+description: Developing decentralized protocols for UAS traffic management
+date: 2022-06-17
+skills: [Python, TensorFlow, Machine Learning]
+---
+
+Air traffic management has traditionally used centralized control towers to handle airplanes flying between airports. But it's becoming increasingly clear that new methods of air transport, like drones or eVTOLs, will be flying in large numbers away from airports on-demand. A centralized control system for traditional aviation will be overwhelmed by demand; the current decentralized approach (where there's very little coordination) is unsafe if any substantial number of vehicles take flight.

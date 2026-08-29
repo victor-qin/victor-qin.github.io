@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { favorites } from '../data/reading.ts';
+---
+
+<Base
+  title="Good Scifi Books — Victor Qin"
+  description="Science fiction Victor Qin recommends, and why."
+>
+  <h1>Good Scifi Books</h1>
+  <p class="lede">All-time favorites, and what I took from each.</p>
+
+  <div class="reading" style="margin-top: 2.5rem;">
+    {favorites.map((book) => (
+      <article class="reading-item">
+        <h3>{book.title}</h3>
+        <p>{book.note}</p>
+      </article>
+    ))}
+  </div>
+</Base>

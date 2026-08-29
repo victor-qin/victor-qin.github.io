@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = 'Victor Qin — PhD Candidate in AeroAstro at MIT, working on air traffic control methods for future aviation systems.',
+  image = '/profile_photo.jpg',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+const path = Astro.url.pathname;
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/work/', label: 'Work' },
+  { href: '/zreading/', label: 'Reading' },
+];
+
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="page">
+        <a class="brand" href="/">Victor Qin</a>
+        <nav class="nav" aria-label="Primary">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="site-main">
+      <div class="page">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page">
+        <span>© {new Date().getFullYear()} Victor Qin</span>
+        <span>
+          <a href="mailto:victorqi@mit.edu">Email</a> ·
+          <a href="https://www.linkedin.com/in/victor-qin-14754286/">LinkedIn</a> ·
+          <a href="/files/VictorQin_CV.pdf">CV</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

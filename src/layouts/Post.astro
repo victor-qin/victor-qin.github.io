@@ -1,0 +1,55 @@
+---
+import Base from './Base.astro';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  image?: ImageMetadata;
+  skills?: string[];
+  role?: string;
+  link?: string;
+  linkLabel?: string;
+  backHref: string;
+  backLabel: string;
+}
+
+const {
+  title, description, date, image,
+  skills = [], role, link, linkLabel,
+  backHref, backLabel,
+} = Astro.props;
+
+const when = date.toLocaleDateString('en-US', {
+  year: 'numeric', month: 'long', timeZone: 'UTC',
+});
+---
+
+<Base title={`${title} — Victor Qin`} description={description} image={image?.src}>
+  <a class="backlink" href={backHref}>← {backLabel}</a>
+
+  <article class="prose">
+    <header class="post-header">
+      <h1>{title}</h1>
+      <div class="post-meta">
+        <time datetime={date.toISOString()}>{when}</time>
+        {role && <span aria-hidden="true">·</span>}
+        {role && <span>{role}</span>}
+      </div>
+      {skills.length > 0 && (
+        <ul class="tags" style="margin-top: 1rem;">
+          {skills.map((s) => <li class="tag">{s}</li>)}
+        </ul>
+      )}
+    </header>
+
+    <slot />
+
+    {link && (
+      <p class="post-cta">
+        <a href={link} target="_blank" rel="noopener">{linkLabel ?? 'Visit'} →</a>
+      </p>
+    )}
+  </article>
+</Base>
