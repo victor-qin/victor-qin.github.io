@@ -1,0 +1,51 @@
+export interface Book {
+  title: string;
+  note: string;
+}
+
+export const favorites: Book[] = [
+  {
+    title: `The Expanse series by James S.A. Corey`,
+    note: `Human insights (political and emotional) + realistic physics + unrealistic alien tech = a space opera that actually becomes a society simulator. Finds the impulse response of (interplanetary) humanity.`,
+  },
+  {
+    title: `The Diamond Age by Neal Stephenson`,
+    note: `When you can build anything it's not how you build; it's what you build that counts.`,
+  },
+  {
+    title: `Starship Troopers by Robert A. Heinlein`,
+    note: `Not the movie, the book. What's our obligation to society? "But this universe consists of paired dualities. What is the converse of authority? Mr. Rico." "Responsibility, sir."`,
+  },
+  {
+    title: `The Last Question and Profession by Isaac Asimov`,
+    note: `The Last Question is literally the last question of entropy; Profession lays an argument for what higher education is meant to be.`,
+  },
+  {
+    title: `The Wayfarers series by Becky Chambers`,
+    note: `Strong embodiment of heterotopias — the universe and the characters are both absolutely perfect yet still flawed, but they'll survive, grow and figure it out. If the Expanse is the impulse response, this is the steady state error, or definitely overdamped.`,
+  },
+  {
+    title: `The True Story of Merganther's Run by David D. Levine`,
+    note: `Short story spanning centuries of technology, with an interesting thread of what actually matters in making new things. What is the determination and the motive that makes true innovation matter?`,
+  },
+  {
+    title: `The Three-Body Problem, The Wandering Earth, and Mountain by Liu Cixin`,
+    note: `What is the most no-win, darkest situation, and how do we respond? So many different ways to act, with a balance of the most self-interested of actions in the service of the most noble and deepest goals. Throw in a story about the why and what of exploration.`,
+  },
+  {
+    title: `The Divine Cities series by Robert Jackson Bennett`,
+    note: `Each one is somehow about our relationship with other people, despite never clearly. What's the sacrifice that we go to, and what are the goals? What is the mission of an occupier, and can it be good?`,
+  },
+  {
+    title: `The Magicians trilogy by Lev Grossman`,
+    note: `What do you do with your potential? How do you use it wisely, and understand your consequences? What is the process of growing up and maturing?`,
+  },
+  {
+    title: `How to Live Safely in a Science Fictional Universe by Charles Yu`,
+    note: `The scientific explanation of how to tell a story, while trying to figure out Asian-American identity. Fantastic blend of self-reflection, self-deprecating humor, and science fiction.`,
+  },
+  {
+    title: `Inception (film)`,
+    note: `The best heist movie, along with Ocean's 11.`,
+  },
+];

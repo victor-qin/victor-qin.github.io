@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { directions } from '../data/research.ts';
+import { forTopic } from '../data/publications.ts';
+
+const sections = directions.map((d) => ({ ...d, papers: forTopic(d.id) }));
+---
+
+<Base
+  title="Research — Victor Qin"
+  description="Research directions Victor Qin works on: congestion management and market design for advanced air mobility, game-theoretic multi-agent decision making, and distributed optimization."
+>
+  <h1>Research</h1>
+  <p class="lede">
+    Multi-agent systems bring their own set of challenges, falling across a wide range of behaviors. I use techniques from game theory, optimization, learning, and control to answer questions across different scales of the autonomy stack, from strategic planning of traffic flows to tactical deconfliction of drones.
+  </p>
+
+  {sections.map((d, i) => (
+    <section class="direction">
+      <h2 class="direction-title">
+        <span class="direction-num" aria-hidden="true">{i + 1}</span>
+        {d.title}
+      </h2>
+      <p class="direction-summary">{d.summary}</p>
+
+      {d.papers.length > 0 && (
+        <div class="direction-pubs">
+          <h3 class="pub-group">Publications on this topic</h3>
+          <PublicationList items={d.papers} />
+        </div>
+      )}
+    </section>
+  ))}
+
+  <p class="lede">
+    <em>There are no technical problems, only political problems. Technology expands our Pareto frontier; politics determines where we end up within that frontier.</em>
+  </p>
+</Base>

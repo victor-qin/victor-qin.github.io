@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { Image } from 'astro:assets';
+import profilePhoto from '../assets/img/profile_photo.jpg';
+import { publications, byYearDesc } from '../data/publications.ts';
+
+const journal = publications.filter((p) => p.type === 'journal').sort(byYearDesc);
+const conference = publications.filter((p) => p.type === 'conference').sort(byYearDesc);
+const patents = publications.filter((p) => p.type === 'patent').sort(byYearDesc);
+const anyCoFirst = publications.some((p) => p.coFirst);
+---
+
+<Base title="Victor Qin">
+  <section class="hero">
+    <div>
+      <h1>Victor Qin</h1>
+      <ul class="credentials">
+        <li>PhD Candidate, AeroAstro, MIT</li>
+        <li>SM AeroAstro, MIT 2023</li>
+        <li>SB Electrical Engineering (Government secondary), Harvard 2021</li>
+      </ul>
+
+      <p>
+        I'm a PhD Candidate in AeroAstro at MIT, advised by Prof. Hamsa
+        Balakrishnan in the DINaMo Lab, where I study air traffic control methods for
+        future aviation systems. That question has pulled me into game theory,
+        optimization, and reinforcement learning.
+      </p>
+      <p>
+        I'm an NSF Graduate Research Fellow, and previously an NCCR Automation
+        Fellow at ETH Zurich and a MathWorks Fellow.
+      </p>
+      <p>
+        Outside of my research, I have been a technical consultant on patents at Curated Innovation and supported venture capital startups at The Engine.
+      </p>
+      <p>Always happy to talk about science fiction, take a trip, and play ultimate Frisbee!</p>
+      <div class="linkrow">
+        <a href="mailto:victorqi@mit.edu">Email</a>
+        <a href="https://www.linkedin.com/in/victor-qin-14754286/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/files/VictorQin_CV.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=BsHDXUIAAAAJ&hl=en">Google Scholar</a>
+        <a href="/research/">Research</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <Image src={profilePhoto} alt="Victor Qin" widths={[260, 520]} sizes="(max-width: 720px) 200px, 260px" loading="eager" />
+    </div>
+  </section>
+
+  <section class="section" id="publications">
+    <div class="section-head">
+      <h2>Publications</h2>
+      <a href="/research/">Research directions →</a>
+    </div>
+
+    <h3 class="pub-group">Journal articles and preprints</h3>
+    <PublicationList items={journal} />
+
+    <h3 class="pub-group">Peer-reviewed conference papers</h3>
+    <PublicationList items={conference} />
+
+    {patents.length > 0 && (
+      <>
+        <h3 class="pub-group">Patents</h3>
+        <PublicationList items={patents} />
+      </>
+    )}
+
+    {anyCoFirst && <p class="pub-footnote">* denotes (co-)first author.</p>}
+  </section>
+</Base>
