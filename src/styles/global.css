@@ -1,12 +1,17 @@
 /* ---- Tokens ------------------------------------------------------------- */
+/* Each token is light-dark(light, dark); `color-scheme` picks the branch.
+   With no data-theme the OS preference wins; the header toggle sets
+   data-theme on <html> to force one side. */
 :root {
-  --bg:        #fbfaf8;
-  --surface:   #ffffff;
-  --text:      #1b1a18;
-  --muted:     #6a655e;
-  --border:    #e6e2db;
-  --accent:    #b3541e;
-  --accent-sf: #f5ede6;
+  color-scheme: light dark;
+
+  --bg:        light-dark(#fbfaf8, #131211);
+  --surface:   light-dark(#ffffff, #1b1a18);
+  --text:      light-dark(#1b1a18, #ece8e2);
+  --muted:     light-dark(#6a655e, #a09a91);
+  --border:    light-dark(#e6e2db, #2e2b27);
+  --accent:    light-dark(#b3541e, #e8834a);
+  --accent-sf: light-dark(#f5ede6, #2a1f17);
 
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-serif: ui-serif, Georgia, "Times New Roman", serif;
@@ -17,17 +22,8 @@
   --radius: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:        #131211;
-    --surface:   #1b1a18;
-    --text:      #ece8e2;
-    --muted:     #a09a91;
-    --border:    #2e2b27;
-    --accent:    #e8834a;
-    --accent-sf: #2a1f17;
-  }
-}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
 
 /* ---- Base --------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -139,6 +135,31 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 3rem 0; }
 }
 .nav a:hover { color: var(--text); }
 .nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
+
+.header-right { display: flex; align-items: center; gap: 1.4rem; }
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle svg { width: 1rem; height: 1rem; }
+/* Show the icon for the theme you'd switch *to*. */
+.theme-toggle .icon-sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* ---- Hero --------------------------------------------------------------- */
 .hero {

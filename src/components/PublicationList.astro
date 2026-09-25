@@ -19,7 +19,7 @@ const { items } = Astro.props;
 
       <div class="pub-body">
         <h3 class="pub-title">
-          {p.url ? <a href={p.url}>{p.title}</a> : p.title}
+          {(p.url ?? p.pdf) ? <a href={p.url ?? p.pdf}>{p.title}</a> : p.title}
         </h3>
 
         <p class="pub-authors">

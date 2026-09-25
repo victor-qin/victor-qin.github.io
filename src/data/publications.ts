@@ -8,13 +8,14 @@ export interface Publication {
   /** Full venue, shown under the authors. */
   venue: string;
   year: number;
-  type: 'journal' | 'conference';
+  /** Patents reuse the same fields: authors = inventors, venue = patent number/status. */
+  type: 'journal' | 'conference' | 'patent';
   /** true => this author list carries a (co-)first-author asterisk on Victor. */
   coFirst?: boolean;
   toAppear?: boolean;
   /** Award or presentation note. */
   note?: string;
-  /** TODO: fill these in — publisher/DOI page and a direct PDF. */
+  /** Publisher/DOI page and a direct PDF. The title links to url, else pdf. */
   url?: string;
   pdf?: string;
   /** Research direction ids from research.ts */
@@ -37,15 +38,29 @@ export const publications: Publication[] = [
     topics: ['game-theoretic-multi-agent'],
   },
   {
+    id: 'maheshwari-jats-2025',
+    title: 'Privacy-Preserving Mechanisms for Coordinating Airspace Usage in Advanced Air Mobility',
+    authors: ['C. Maheshwari', 'M. G. Mendoza', 'V. Tuck', 'P. Y. Su', 'V. Qin', 'S. Seshia', 'H. Balakrishnan', 'S. Sastry'],
+    venueShort: 'JATS 2025',
+    venue: 'ACM Journal on Autonomous Transportation Systems, vol. 2, no. 4, pp. 1-34',
+    year: 2025,
+    type: 'journal',
+    topics: ['congestion-management'],
+    url: 'https://doi.org/10.1145/3732290',
+    pdf: 'https://dl.acm.org/doi/pdf/10.1145/3732290',
+  },
+  {
     id: 'qin-jat-2024',
     title: 'Market Structures for Service Providers in Advanced Air Mobility',
     authors: ['V. Qin', 'G. Ding', 'H. Balakrishnan'],
     venueShort: 'JAT 2024',
-    venue: 'Journal of Air Transportation',
+    venue: 'Journal of Air Transportation, vol. 32, no. 4, pp. 169-183',
     year: 2024,
     type: 'journal',
     coFirst: true,
     topics: ['market-structures'],
+    url: 'https://doi.org/10.2514/1.D0415',
+    pdf: 'https://www.mit.edu/~hamsa/pubs/Qin-etal-JAT2024-market-structures-for-service-providers-in-AAM.pdf',
   },
   {
     id: 'qin-icrat-2024',
@@ -58,6 +73,7 @@ export const publications: Publication[] = [
     coFirst: true,
     note: 'Best Paper in Economics, Environment and Information Track',
     topics: ['market-structures'],
+    pdf: 'https://www.mit.edu/~hamsa/pubs/QinBalakrishnan_ICRAT2024-final.pdf',
   },
   {
     id: 'dolan-astro-2023',
@@ -68,6 +84,7 @@ export const publications: Publication[] = [
     year: 2023,
     type: 'conference',
     topics: ['game-theoretic-multi-agent'],
+    pdf: 'https://www.mit.edu/~hamsa/pubs/Dolan-etal-AAS2023.pdf',
   },
   {
     id: 'qin-atm-2023',
@@ -79,10 +96,11 @@ export const publications: Publication[] = [
     type: 'conference',
     coFirst: true,
     topics: ['market-structures'],
+    pdf: 'https://www.mit.edu/~hamsa/pubs/ATM2023_QinDingBalakrishnan-cr-red-size.pdf',
   },
   {
     id: 'chin-frontiers-2023',
-    title: 'Decentralized and Cost-Aware Traffic Management Protocols for Advanced Air Mobility',
+    title: 'Traffic Management Protocols for Advanced Air Mobility',
     authors: ['C. Chin', 'V. Qin', 'K. Gopalakrishnan', 'H. Balakrishnan'],
     venueShort: 'Frontiers 2023',
     venue: 'Frontiers in Aerospace Engineering, vol. 2, pp. 1176969',
@@ -90,6 +108,7 @@ export const publications: Publication[] = [
     type: 'journal',
     coFirst: true,
     topics: ['congestion-management'],
+    url: 'https://doi.org/10.3389/fpace.2023.1176969',
   },
   {
     id: 'qin-icrat-2022',
@@ -101,6 +120,7 @@ export const publications: Publication[] = [
     type: 'conference',
     coFirst: true,
     topics: ['congestion-management'],
+    url: 'https://hdl.handle.net/1721.1/145406',
   },
   {
     id: 'zhang-iros-2021',
@@ -111,6 +131,18 @@ export const publications: Publication[] = [
     year: 2021,
     type: 'conference',
     topics: ['distributed-optimization'],
+    url: 'https://doi.org/10.1109/IROS51168.2021.9636841',
+  },
+  {
+    id: 'zeroavia-patent-2025',
+    title: 'Interrogation of Temperature-Sensitive Coatings on the Outside of Fuel Tanks and Wireless Communication Through the Tank Walls with an Internally Mounted Temperature Sensor',
+    authors: ['P. Bryant', 'A. Chatterjee', 'A. Dalal', 'V. Qin'],
+    venueShort: 'DE Patent App.',
+    venue: 'German Patent Application DE 10 2025 115 266 A1, ZeroAvia Inc., published Oct. 2025 (pending)',
+    year: 2025,
+    type: 'patent',
+    url: 'https://patents.google.com/patent/DE102025115266A1/en',
+    topics: [],
   },
 ];
 

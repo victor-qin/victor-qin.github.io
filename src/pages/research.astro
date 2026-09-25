@@ -13,9 +13,7 @@ const sections = directions.map((d) => ({ ...d, papers: forTopic(d.id) }));
 >
   <h1>Research</h1>
   <p class="lede">
-    My work sits between air traffic management and the game theory and optimization
-    needed to coordinate many self-interested agents. These are the directions I'm
-    currently thinking about.
+    Multi-agent systems bring their own set of challenges, falling across a wide range of behaviors. I use techniques from game theory, optimization, learning, and control to answer questions across different scales of the autonomy stack, from strategic planning of traffic flows to tactical deconfliction of drones.
   </p>
 
   {sections.map((d, i) => (
@@ -34,4 +32,8 @@ const sections = directions.map((d) => ({ ...d, papers: forTopic(d.id) }));
       )}
     </section>
   ))}
+
+  <p class="lede">
+    <em>There are no technical problems, only political problems. Technology expands our Pareto frontier; politics determines where we end up within that frontier.</em>
+  </p>
 </Base>
